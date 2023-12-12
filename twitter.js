@@ -47,13 +47,18 @@
         links.forEach(link => link.remove());
         const xlink = document.querySelectorAll('a[aria-label="X"]');
         xlink.forEach(link => link.remove());
-        const prem = document.querySelectorAll('aside[aria-label="Subscribe to Premium"]');
-      	prem.forEach(e => e.parentElement.remove());
+        const removePrem = () => {
+        	const prem = document.querySelectorAll('aside[aria-label="Subscribe to Premium"]');
+      		prem.forEach(e => e.parentElement.remove());
+        };
+      
+      	removePrem();
+        setTimeout(removePrem, 1000);
       
       	changeTitle();
       	const title = document.querySelector('title')
         console.log(title);
-        console.log("Title : " + document.title);
+      console.log("Title : " + document.title);
         if (title) {
       		titleObserver.observe(title, { childList: true, characterData: true, subtree: true });
         }
