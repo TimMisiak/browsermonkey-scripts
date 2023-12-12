@@ -14,10 +14,14 @@
   
   	function changeTitle() {
         let titleParts = document.title.split(" / ");
+      	var newTitle = document.title;
         if (titleParts.length > 1) {
-            document.title = titleParts[0] + " / Twitter";
+            newTitle = titleParts[0] + " / Twitter";
         } else if (document.title == "X") {
-          document.title = "Twitter";
+            newTitle = "Twitter";
+        }
+        if (newTitle != document.title) {
+          document.title = newTitle;
         }
     }
 
@@ -47,7 +51,12 @@
       	prem.forEach(e => e.parentElement.remove());
       
       	changeTitle();
-      	titleObserver.observe(document.querySelector('title'), { childList: true, characterData: true, subtree: true });
+      	const title = document.querySelector('title')
+        console.log(title);
+        console.log("Title : " + document.title);
+        if (title) {
+      		titleObserver.observe(title, { childList: true, characterData: true, subtree: true });
+        }
     });
 
   
