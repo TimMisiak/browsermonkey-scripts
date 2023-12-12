@@ -30,6 +30,8 @@
           console.log("Title changed: " + document.title);
           changeTitle();
         });
+
+        inObserver = false;
     });
 
     window.addEventListener('load', function() {
