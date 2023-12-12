@@ -10,15 +10,22 @@
 (function() {
     'use strict';
   
+  	var inObserver = false;
+  
   	function changeTitle() {
         let titleParts = document.title.split(" / ");
         if (titleParts.length > 1) {
             document.title = titleParts[0] + " / Twitter";
+        } else if (document.title == "X") {
+          document.title = "Twitter";
         }
     }
 
     // Observe for title changes
     let titleObserver = new MutationObserver(function(mutations) {
+      	if (inObserver) { return; }
+        inObserver = true;
+
         mutations.forEach(function(mutation) {
           console.log("Title changed: " + document.title);
           changeTitle();
