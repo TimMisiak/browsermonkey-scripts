@@ -1,4 +1,4 @@
-# tampermonkey-scripts
+# browsermonkey-scripts
 Tim's personal tampermonkey/greasemonkey scripts
 
 
